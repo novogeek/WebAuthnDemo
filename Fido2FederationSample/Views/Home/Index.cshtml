@@ -1,0 +1,65 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>WebAuthn Demo</title>
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
+              crossorigin="anonymous"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" />
+    </environment>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="container">
+        <main role="main" class="pb-3">
+
+            <div class="text-center form-signin">
+                <h1 class="display-4">WebAuthn Demo with Federation</h1>
+                <p>Federation powered by Azure Active Directory, which now supports <a href="https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Announcing-the-public-preview-of-Azure-AD-support-for-FIDO2/ba-p/746362">FIDO2-based passwordless sign-in</a></p>
+            </div>
+            <hr />
+
+            @if (!User.Identity.IsAuthenticated)
+            {
+            <div class="mt-5 text-center">
+                <h2 class="display-5">Try it out now!</h2>
+                <div class="mt-4">
+                    <span class="ml-3"><a class="btn btn-primary btn-lg" href="/Home/UserDetails" role="button">Sign In</a></span>
+                </div>
+            </div>
+            }
+            else
+            {
+            <div class="mt-5 text-center">
+                <h2 class="display-5">Thanks for trying it out!</h2>
+                Go back to <a href="/Home/UserDetails">Details</a> page
+            </div>
+            }
+
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container text-center">
+            WebAuthn Demo | Source code: <a href="https://github.com/novogeek/WebAuthnDemo" target="_blank">https://github.com/novogeek/WebAuthnDemo</a>
+        </div>
+    </footer>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    </environment>
+</body>
+</html>

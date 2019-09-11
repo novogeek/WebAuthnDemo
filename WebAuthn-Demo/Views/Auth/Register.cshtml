@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewData["Title"] = "Register";
+}
+<div class="row justify-content-around form-signin">
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="display-5">Register</h3>
+            </div>
+            <div class="card-body">
+                <form action="/mfa" method="post" id="register">
+                    <div class="form-group">
+                        <label for="txtRegiserUsername">Username</label>
+                        <input type="text" class="form-control" id="txtRegiserUsername" placeholder="john" name="username" required>
+                    </div>
+                    @*<div class="form-group">
+                        <label for="txtRegiserDisplayname">Display Name</label>
+                        <input type="text" class="form-control" id="txtRegiserDisplayname" placeholder="John Doe" name="displayName">
+                    </div>*@
+                    <button type="submit" class="btn btn-primary float-right">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row justify-content-around">
+    <div class="col-4">
+        <div class="mt-2 mb-2">
+            <a class="" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Advanced Settings >></a>
+        </div>
+        <div class="card collapse" id="collapseExample">
+            <div class="card-body">
+                <div class="content">
+                    <div class="form-group">
+                        <label for="option-authenticator">Authenticator</label>
+                        <select class="form-control" id="option-authenticator">
+                            <option selected value="">Not specified</option>
+                            <option value="platform">Platform (TPM)</option>
+                            <option value="cross-platform">Cross Platform (FIDO Security Key)</option>
+                        </select>
+                    </div>
+                    <hr />
+                    <small>NOTE: These server-side settings have been exposed only for demo purposes. Do not do this in production.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/helpers.js"></script>
+<script src="~/js/sweetalert2.js"></script>
+<script src="~/js/custom.register.js"></script>

@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewData["Title"] = "Signin";
+}
+<link href="~/css/site.css" rel="stylesheet" />
+<div class="row justify-content-around form-signin">
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="display-5">Sign in</h3>
+            </div>
+            <div class="card-body">
+
+                <form id="signin">
+                    <div class="form-group">
+                        <label for="txtSignInUsername">Username</label>
+                        <input type="text" class="form-control" id="txtSignInUsername" placeholder="john" name="username" required>
+                    </div>
+                    <span class="form-group"><small>No account? <a href="/Auth/Register" class="">Create one!</a></small></span>
+                    <button type="submit" class="btn btn-primary float-right">Sign In</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row justify-content-around">
+    <div class="col-4">
+        <div class="mt-2 mb-2">
+            <a class="" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Advanced Settings >></a>
+        </div>
+        <div class="card collapse" id="collapseExample">
+            <div class="card-body">
+                <div class="content">
+                    <div class="form-group">
+                        <label for="option-userverification">User verification</label>
+                        <select class="form-control" id="option-userverification">
+                            <option selected value="preferred">Preferred</option>
+                            <option value="required">Required</option>
+                            <option value="discouraged">Discouraged</option>
+                        </select>
+                    </div>
+                    <hr />
+                    <small>NOTE: These server-side settings have been exposed only for demo purposes. Do not do this in production.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/js/helpers.js"></script>
+<script src="~/js/sweetalert2.js"></script>
+<script src="~/js/custom.login.js"></script>

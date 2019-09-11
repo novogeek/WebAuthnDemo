@@ -1,0 +1,25 @@
+﻿@using System.Security.Claims;
+@using System.Net.Mail;
+@{
+    ViewData["Title"] = "User Details";
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    var identity = User.Identity as ClaimsIdentity;
+    string preferred_username = identity.Claims.FirstOrDefault(c => c.Type == "preferred_username")?.Value;
+    MailAddress addr = new MailAddress(preferred_username);
+    <div class="jumbotron">
+        <h1 class="display-4">Hello, @addr.User!</h1>
+        <p class="lead">Congratulations! You have just signed in without a password, through the power of WebAuthn!!</p>
+        <hr class="my-4">
+        <p>Note: This page is accessible only for authenticated users.</p>
+    </div>
+}
+else
+{
+    <div class="jumbotron">
+        <h1 class="display-4">Oops! Something went wrong with your login.</h1>
+    </div>
+}
+

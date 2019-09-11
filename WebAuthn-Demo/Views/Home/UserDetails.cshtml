@@ -1,0 +1,24 @@
+﻿@using System.Security.Claims
+@{
+    ViewData["Title"] = "User Details";
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    var identity = User.Identity as ClaimsIdentity;
+    string username = identity.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Upn)?.Value;
+
+    <div class="jumbotron">
+        <h1 class="display-4">Hello, @username!</h1>
+        <p class="lead">Congratulations! You have just signed in without a password, through the power of WebAuthn!!</p>
+        <hr class="my-4">
+        <p>Note: This page is accessible only for authenticated users.</p>
+    </div>
+}
+else
+{
+    <div class="jumbotron">
+        <h1 class="display-4">Oops! Something went wrong with your login.</h1>
+    </div>
+}
+
